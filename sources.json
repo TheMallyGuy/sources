@@ -1,6 +1,7 @@
 {
   "$schema": "./altstore.schema.json",
   "name": "Mally's ipa sources",
+  "iconURL": "https://i.imgur.com/pqIZoZo.jpeg",
   "subtitle": "update regularly",
   "description": "personal sources for altstore/livecontainer",
   "featuredApps": [
