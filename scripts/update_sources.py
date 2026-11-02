@@ -11,6 +11,11 @@ os.makedirs(IPA_DIR, exist_ok=True)
 with open(os.path.join(FILE, "updateSources.json"), "r") as f:
     UPDATE_SOURCES = json.load(f)
 
+RAW_BASE = "https://raw.githubusercontent.com/{}/{}".format(
+    os.environ.get("GITHUB_REPOSITORY", "TheMallyGuy/sources"),
+    os.environ.get("GITHUB_REF_NAME", "master"),
+)
+
 headers = {"Accept": "application/vnd.github+json"}
 token = os.environ.get("GITHUB_TOKEN")
 if token:
@@ -72,7 +77,9 @@ for source in UPDATE_SOURCES:
             "name": source["app"],
             "bundleIdentifier": plist.get("CFBundleIdentifier"),
             "developerName": source["developerName"],
-            "iconURL": source["iconURL"],
+            "iconURL": source["iconURL"]
+            if source["iconURL"].startswith("http")
+            else f"{RAW_BASE}/{source['iconURL'].removeprefix('./')}",
             "localizedDescription": "",
             "versions": [
                 {
