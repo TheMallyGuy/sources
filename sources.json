@@ -11,7 +11,7 @@
       "name": "Raincord (Discord)",
       "bundleIdentifier": "com.hammerandchisel.discord",
       "developerName": "cocobo1",
-      "iconURL": "./images/RainCord.png",
+      "iconURL": "https://raw.githubusercontent.com/TheMallyGuy/sources/master/images/RainCord.png",
       "localizedDescription": "",
       "versions": [
         {
@@ -19,7 +19,7 @@
           "date": "2026-09-17T15:55:39Z",
           "size": 107065935,
           "buildVersion": "110861",
-          "downloadURL": "./ipas/RainTweak.ipa"
+          "downloadURL": "https://github.com/ra1ncord/RainTweak/releases/download/v1.2.0/RainTweak.ipa"
         }
       ]
     }
