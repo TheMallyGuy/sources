@@ -1,0 +1,179 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://faq.altstore.io/developers/make-a-source/source.schema.json",
+  "title": "AltStore Source",
+  "description": "Unofficial JSON Schema derived from https://faq.altstore.io/developers/make-a-source",
+  "type": "object",
+  "required": ["name", "apps"],
+  "properties": {
+    "name": { "type": "string", "description": "The name of your source as it will appear in AltStore." },
+    "subtitle": { "type": "string", "description": "A short, one-sentence description of the source." },
+    "description": { "type": "string", "description": "A full-length description of the source." },
+    "iconURL": { "type": "string", "format": "uri", "description": "Image identifying the source (shown as a circle). Defaults to the first app's iconURL." },
+    "headerURL": { "type": "string", "format": "uri", "description": "Header image for the About page (3:2 recommended). Defaults to iconURL." },
+    "website": { "type": "string", "format": "uri", "description": "Primary website for the source." },
+    "fediUsername": { "type": "string", "description": "Preferred username on explore.alt.store. Cannot be changed later." },
+    "patreonURL": { "type": "string", "format": "uri", "description": "Link to your Patreon campaign." },
+    "tintColor": { "$ref": "#/definitions/hexColor" },
+    "nsfw": { "type": "boolean", "description": "Whether the source contains adult (NSFW) apps." },
+    "featuredApps": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Ordered bundle identifiers to feature on the About page (first five shown). Defaults to the first five apps."
+    },
+    "apps": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/app" },
+      "description": "Ordered list of apps. Bundle identifiers must be unique."
+    },
+    "news": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/newsItem" },
+      "description": "News items. Identifiers must be unique."
+    }
+  },
+  "additionalProperties": true,
+  "definitions": {
+    "hexColor": {
+      "type": "string",
+      "pattern": "^#?[0-9A-Fa-f]{6}$",
+      "description": "Hexadecimal color, e.g. #F54F32 or C9B632."
+    },
+    "app": {
+      "type": "object",
+      "required": ["name", "bundleIdentifier", "developerName", "localizedDescription", "iconURL", "versions"],
+      "properties": {
+        "name": { "type": "string" },
+        "bundleIdentifier": { "type": "string", "description": "Case-sensitive CFBundleIdentifier; must match Info.plist." },
+        "marketplaceID": { "type": "string", "description": "Apple ID of the notarized app (not needed for non-notarized apps on AltStore Classic)." },
+        "developerName": { "type": "string" },
+        "subtitle": { "type": "string" },
+        "localizedDescription": { "type": "string" },
+        "iconURL": { "type": "string", "format": "uri" },
+        "tintColor": { "$ref": "#/definitions/hexColor" },
+        "category": {
+          "type": "string",
+          "enum": ["developer", "entertainment", "games", "lifestyle", "other", "photo-video", "social", "utilities"],
+          "default": "other"
+        },
+        "screenshots": { "$ref": "#/definitions/screenshots" },
+        "versions": {
+          "type": "array",
+          "description": "Order matters: the first entry is treated as the latest release.",
+          "items": { "$ref": "#/definitions/appVersion" }
+        },
+        "appPermissions": { "$ref": "#/definitions/appPermissions" },
+        "patreon": { "$ref": "#/definitions/patreon" }
+      },
+      "additionalProperties": true
+    },
+    "screenshot": {
+      "type": "object",
+      "required": ["imageURL"],
+      "properties": {
+        "imageURL": { "type": "string", "format": "uri" },
+        "width": { "type": "number", "description": "Pixel width. Required for iPad screenshots." },
+        "height": { "type": "number", "description": "Pixel height. Required for iPad screenshots." }
+      },
+      "additionalProperties": false
+    },
+    "screenshotList": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          { "type": "string", "format": "uri", "description": "Shorthand for a 9:19.5 portrait iPhone screenshot." },
+          { "$ref": "#/definitions/screenshot" }
+        ]
+      }
+    },
+    "ipadScreenshotList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["imageURL", "width", "height"],
+        "properties": {
+          "imageURL": { "type": "string", "format": "uri" },
+          "width": { "type": "number" },
+          "height": { "type": "number" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "screenshots": {
+      "oneOf": [
+        { "$ref": "#/definitions/screenshotList" },
+        {
+          "type": "object",
+          "properties": {
+            "iphone": { "$ref": "#/definitions/screenshotList" },
+            "ipad": { "$ref": "#/definitions/ipadScreenshotList" }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "appVersion": {
+      "type": "object",
+      "required": ["version", "buildVersion", "date", "downloadURL", "size"],
+      "properties": {
+        "version": { "type": "string", "description": "CFBundleShortVersionString (case sensitive)." },
+        "buildVersion": { "type": "string", "description": "CFBundleVersion (case sensitive)." },
+        "marketingVersion": { "type": "string", "description": "Display version. Defaults to 'version (buildVersion)'." },
+        "date": { "type": "string", "description": "ISO 8601 date, e.g. 2023-02-17 or 2023-02-17T12:00:00-06:00." },
+        "localizedDescription": { "type": "string", "description": "What's new in this version." },
+        "downloadURL": { "type": "string", "format": "uri", "description": "Classic: URL of the .ipa. PAL: URL of the ADP's manifest.json or ADP root." },
+        "size": { "type": "integer", "minimum": 0, "description": "Size in bytes." },
+        "assetURLs": {
+          "type": "object",
+          "description": "AltStore PAL: per-file URL overrides for an ADP (keys are file names without extensions).",
+          "additionalProperties": { "type": "string", "format": "uri" }
+        },
+        "minOSVersion": { "type": "string" },
+        "maxOSVersion": { "type": "string", "description": "Inclusive. Most apps should not set this." }
+      },
+      "additionalProperties": true
+    },
+    "appPermissions": {
+      "type": "object",
+      "properties": {
+        "entitlements": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "All entitlements used by the app and its extensions (excluding application-identifier and com.apple.developer.team-identifier)."
+        },
+        "privacy": {
+          "type": "object",
+          "description": "Map of every *UsageDescription key in Info.plist to its description.",
+          "additionalProperties": { "type": "string" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "newsItem": {
+      "type": "object",
+      "required": ["title", "identifier", "caption", "date"],
+      "properties": {
+        "title": { "type": "string" },
+        "identifier": { "type": "string" },
+        "caption": { "type": "string" },
+        "date": { "type": "string", "description": "ISO 8601 date." },
+        "tintColor": { "$ref": "#/definitions/hexColor" },
+        "imageURL": { "type": "string", "format": "uri" },
+        "notify": { "type": "boolean" },
+        "url": { "type": "string", "format": "uri" },
+        "appID": { "type": "string", "description": "Bundle identifier of an associated app." }
+      },
+      "additionalProperties": true
+    },
+    "patreon": {
+      "type": "object",
+      "properties": {
+        "pledge": { "type": "number", "description": "Minimum monthly pledge (USD unless 'currency' is set)." },
+        "currency": { "type": "string", "pattern": "^[A-Z]{3}$", "description": "ISO 4217 code. Required if pledge is set and the campaign is non-USD." },
+        "benefit": { "type": "string" },
+        "tiers": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    }
+  }
+}

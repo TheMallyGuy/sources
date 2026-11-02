@@ -1,0 +1,27 @@
+{
+  "$schema": "./altstore.schema.json",
+  "name": "Mally's ipa sources",
+  "subtitle": "update regularly",
+  "description": "personal sources for altstore/livecontainer",
+  "featuredApps": [
+    "com.hammerandchisel.discord"
+  ],
+  "apps": [
+    {
+      "name": "Raincord (Discord)",
+      "bundleIdentifier": "com.hammerandchisel.discord",
+      "developerName": "cocobo1",
+      "iconURL": "./images/RainCord.png",
+      "localizedDescription": "",
+      "versions": [
+        {
+          "version": "344.1",
+          "date": "2026-09-17T15:55:39Z",
+          "size": 107065935,
+          "buildVersion": "110861",
+          "downloadURL": "./ipas/RainTweak.ipa"
+        }
+      ]
+    }
+  ]
+}

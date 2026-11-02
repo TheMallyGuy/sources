@@ -1,0 +1,11 @@
+[
+    {
+        "app": "Raincord (Discord)",
+        "bundleIdentifier": "com.hammerandchisel.discord",
+        "developerName": "cocobo1",
+        "iconURL": "./images/RainCord.png",
+        "localizedDescription": "",
+        "githubRepo" : "ra1ncord/RainTweak",
+        "downloadedBundleName" : "RainCord.ipa"
+    }
+]
