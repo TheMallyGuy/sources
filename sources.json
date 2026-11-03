@@ -23,6 +23,22 @@
           "downloadURL": "https://github.com/ra1ncord/RainTweak/releases/download/v1.2.0/RainTweak.ipa"
         }
       ]
+    },
+    {
+      "name": "KettuTweak (Discord)",
+      "bundleIdentifier": "com.hammerandchisel.discord",
+      "developerName": "cocobo1",
+      "iconURL": "https://raw.githubusercontent.com/TheMallyGuy/sources/master/images/RainCord.png",
+      "localizedDescription": "",
+      "versions": [
+        {
+          "version": "305.1",
+          "date": "2026-03-08T22:04:51Z",
+          "size": 94058786,
+          "buildVersion": "88876",
+          "downloadURL": "https://github.com/C0C0B01/KettuTweak/releases/download/v305.1/KettuTweak.ipa"
+        }
+      ]
     }
   ]
 }
