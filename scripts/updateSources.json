@@ -15,5 +15,13 @@
         "developerName" : "cocobo1",
         "iconURL" : "./images/RainCord.png",
         "localizedDescription" : ""
+    },
+    {
+        "app" : "Roblox",
+        "bundleIdentifier" : "com.roblox.robloxmobile",
+        "developerName" : "Roblox Corporation",
+        "iconURL" : "./images/Roblox.png",
+        "localizedDescription" : "",
+        "githubRepo" : "Roblox-DeployHistory-Updates/ios-runner/"
     }
 ]
