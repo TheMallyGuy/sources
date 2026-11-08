@@ -28,7 +28,7 @@
         "app" : "brsh",
         "bundleIdentifier" : "com.mally.brsh",
         "developerName" : "Mally",
-        "iconURL" : "https://raw.githubusercontent.com/TheMallyGuy/brsh/refs/heads/master/Icon/AppIcon.png"
+        "iconURL" : "https://raw.githubusercontent.com/TheMallyGuy/brsh/refs/heads/master/Icon/AppIcon.png",
         "localizedDescription" : "",
         "githubRepo" : "TheMallyGuy/brshr"
     }
