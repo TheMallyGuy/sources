@@ -58,17 +58,17 @@
     },
     {
       "name": "brsh",
-      "bundleIdentifier": "com.la66483g8a.brsh",
+      "bundleIdentifier": "com.mally.brsh",
       "developerName": "Mally",
       "iconURL": "https://raw.githubusercontent.com/TheMallyGuy/brsh/refs/heads/master/Icon/AppIcon.png",
       "localizedDescription": "",
       "versions": [
         {
-          "version": "1.0.0",
-          "date": "2026-11-07T15:17:32Z",
-          "size": 461637,
+          "version": "1.0.1",
+          "date": "2026-11-08T04:02:44Z",
+          "size": 705072,
           "buildVersion": "1",
-          "downloadURL": "https://github.com/TheMallyGuy/brsh/releases/download/v1.0.0/brsh-v1.0.0.ipa"
+          "downloadURL": "https://github.com/TheMallyGuy/brsh/releases/download/v1.0.1/brsh-v1.0.1.ipa"
         }
       ]
     }
