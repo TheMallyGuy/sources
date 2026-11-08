@@ -55,6 +55,22 @@
           "downloadURL": "https://github.com/Roblox-DeployHistory-Updates/ios-runner/releases/download/com.roblox.robloxmobile-431946152-894423614/com.roblox.robloxmobile-2.746.1264.ipa"
         }
       ]
+    },
+    {
+      "name": "brsh",
+      "bundleIdentifier": "com.la66483g8a.brsh",
+      "developerName": "Mally",
+      "iconURL": "https://raw.githubusercontent.com/TheMallyGuy/brsh/refs/heads/master/Icon/AppIcon.png",
+      "localizedDescription": "",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "date": "2026-11-07T15:17:32Z",
+          "size": 461637,
+          "buildVersion": "1",
+          "downloadURL": "https://github.com/TheMallyGuy/brsh/releases/download/v1.0.0/brsh-v1.0.0.ipa"
+        }
+      ]
     }
   ]
 }
