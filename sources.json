@@ -12,7 +12,7 @@
       "name": "Raincord (Discord)",
       "bundleIdentifier": "com.hammerandchisel.discord",
       "developerName": "cocobo1",
-      "iconURL": "https://raw.githubusercontent.com/TheMallyGuy/sources/master/images/RainCord.png",
+      "iconURL": "https://raw.githubusercontent.com/Maallly/sources/master/images/RainCord.png",
       "localizedDescription": "",
       "versions": [
         {
@@ -28,7 +28,7 @@
       "name": "KettuTweak (Discord)",
       "bundleIdentifier": "com.hammerandchisel.discord",
       "developerName": "cocobo1",
-      "iconURL": "https://raw.githubusercontent.com/TheMallyGuy/sources/master/images/RainCord.png",
+      "iconURL": "https://raw.githubusercontent.com/Maallly/sources/master/images/RainCord.png",
       "localizedDescription": "",
       "versions": [
         {
@@ -44,7 +44,7 @@
       "name": "Roblox",
       "bundleIdentifier": "com.roblox.robloxmobile",
       "developerName": "Roblox Corporation",
-      "iconURL": "https://raw.githubusercontent.com/TheMallyGuy/sources/master/images/Roblox.png",
+      "iconURL": "https://raw.githubusercontent.com/Maallly/sources/master/images/Roblox.png",
       "localizedDescription": "",
       "versions": [
         {
@@ -68,7 +68,7 @@
           "date": "2026-11-08T04:02:44Z",
           "size": 705072,
           "buildVersion": "1",
-          "downloadURL": "https://github.com/TheMallyGuy/brsh/releases/download/v1.0.1/brsh-v1.0.1.ipa"
+          "downloadURL": "https://github.com/Maallly/brsh/releases/download/v1.0.1/brsh-v1.0.1.ipa"
         }
       ]
     }
